@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Add Country</title>
+
+	<!-- <f:metadata>
+		<f:event listener="#{productController.loadProducts()}"
+			type="preRenderView" />
+	</f:metadata> -->
+</h:head>
+  
+  <h:body>
+  	<h3>Add a region here!</h3>
+  	
+  	
+  	<h:messages globalOnly="true" styleClass="error"/>
+  	<h3>Country Code</h3>
+    <h:form>
+      Country Code : <h:inputText value="#{region.co_code}" id="co_code" required="true" requiredMessage="Mandatory field"></h:inputText>
+  	  <h:message for="code" styleClass="error" />
+      <br/>
+      <br/>
+      Region Code : <h:inputText value="#{region.reg_code}" id="reg_code" required="true" requiredMessage="Mandatory field"></h:inputText>
+  	  <!-- <h:message for="code" styleClass="error" /> -->
+      <br/>
+      <br/>
+      Region Name: <h:inputText value="#{region.reg_name}" id="reg_name" p:placeholder="Enter Region Name" ></h:inputText>
+      <br/>
+      <br/>
+      Country Details: <h:inputText value="#{region.reg_desc}" id="reg_desc" p:placeholder="Enter Region description" ></h:inputText>
+      <br/>
+      <br/>
+	<h:commandButton value="Add" action="#{regionController.addRegion(region)}"/>
+   </h:form>
+  	
+  	
+  	
+  	
+  	
+  	 <h:link value="Homepage" outcome="index" />
+  	<!-- <p><a href="country">Countries</a></p> -->
+  </h:body>
+</html>

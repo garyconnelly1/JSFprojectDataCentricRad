@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core">
+   
+   <f:metadata>
+	<f:event type="preRenderView"
+		listener="#{headOfStateController.loadHeadOfState()}" />
+</f:metadata>
+
+
+<style type="text/css">
+                   table {font-size: large;
+                          border: 4px black solid;
+                          color: white;
+                   }
+                   tr{background-color: #001f4d;
+                   }
+                   td{border: 4px green solid;
+                   }
+ </style>
+    
+  <h:head>
+    <title>Heads Of State Page</title>
+  </h:head>
+  
+  <h:body>
+   <h1> Welcome to Heads Of State page:</h1>
+    
+    <h:form>
+    
+   <!-- <h:inputText value="#{product.code}" id="code" /> --> 
+    	<!-- <h:outputText id="outputCountries" value="#{countrycontroller.loadCountry}" />
+    	<h:outputText id="outputCountries" value="#{country.name}" /> -->
+    	 <h:dataTable value="#{headOfStateController.headOfState}" var="headOfState" styleClass="table" 
+				headerClass="table-header"
+				rowClasses="table-odd-row,table-even-row"
+	>
+
+		<h:column>
+			<f:facet name="header">ID</f:facet>
+ 	  #{headOfState._id}
+	</h:column>
+	<h:column>
+			<f:facet name="header">Head of state</f:facet>
+ 	  #{headOfState.headOfState}
+	</h:column>
+		
+	   </h:dataTable>
+	
+	
+	
+	<!--  <h:button value="Homepage" outcome="index"/> -->
+    	
+    	 
+    	    </h:form>
+    	    
+    
+  <h:link value="Homepage" outcome="index" />
+  </h:body>
+</html>

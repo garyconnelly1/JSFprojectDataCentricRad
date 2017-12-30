@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core">
+   
+   <f:metadata>
+	<f:event type="preRenderView"
+		listener="#{regionController.loadRegions()}" />
+</f:metadata>
+
+<style type="text/css">
+                   table {font-size: large;
+                          border: 4px black solid;
+                          color: white;
+                   }
+                   tr{background-color: #001f4d;
+                   }
+                   td{border: 4px green solid;
+                   }
+ </style>
+    
+  <h:head>
+    <title>Region page</title>
+  </h:head>
+  
+  <h:body>
+   <h1> Welcome to region page:</h1>
+    
+    <h:form>
+    
+   <!-- <h:inputText value="#{product.code}" id="code" /> --> 
+    	<!--   <h:outputText id="outputCountries" value="#{countrycontroller.loadCountry}" />
+    	<h:outputText id="outputCountries" value="#{country.name}" /> -->
+    	 
+    	
+    	 <h:dataTable value="#{regionController.regions}" var="region" styleClass="table" 
+				headerClass="table-header"
+				rowClasses="table-odd-row,table-even-row"
+	>
+
+		<h:column>
+			<f:facet name="header">Country Code</f:facet>
+ 	  #{region.co_code}
+	</h:column>
+	<h:column>
+			<f:facet name="header">Region Code</f:facet>
+ 	  #{region.reg_code}
+	</h:column>
+		<h:column>
+			<f:facet name="header">Region Name</f:facet>
+ 	  #{region.reg_name}
+	</h:column>
+	<h:column>
+			<f:facet name="header">Region Description</f:facet>
+ 	  #{region.reg_desc}
+	</h:column> 
+	</h:dataTable>
+    	 <h:button value="Click here to add Region" outcome="addRegion"/> 
+    	 <br/>
+    	 <!--  
+    	 <h:button value="Click here to delete Region" outcome="deleteRegion"/> 
+    	 <br/>-->
+    	 
+    	  
+    	    </h:form>
+    	    
+    
+  <h:link value="Homepage" outcome="index" />
+  </h:body>
+</html>
+

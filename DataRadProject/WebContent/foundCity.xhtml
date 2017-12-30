@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Found Cities</title>
+
+	<!-- <f:metadata>
+		<f:event listener="#{productController.loadProducts()}"
+			type="preRenderView" />
+	</f:metadata> -->
+	
+	<f:metadata>
+	<f:event type="preRenderView"
+		listener="#{cityController.findCity(city)}" />
+</f:metadata>  	
+</h:head>
+
+<h:body>
+
+	  <h:form>
+    
+   <!-- <h:inputText value="#{product.code}" id="code" /> --> 
+    	<!-- <h:outputText id="outputCountries" value="#{countrycontroller.loadCountry}" />
+    	<h:outputText id="outputCountries" value="#{country.name}" /> -->
+    	 <h:dataTable value="#{cityController.cities}" var="city" styleClass="table" 
+				headerClass="table-header"
+				rowClasses="table-odd-row,table-even-row"
+	>
+
+		<h:column>
+			<f:facet name="header">City Code</f:facet>
+ 	  #{city.city_code}
+	</h:column>
+	<h:column>
+			<f:facet name="header">Country Code</f:facet>
+ 	  #{city.co_code}
+	</h:column>
+		<h:column>
+			<f:facet name="header">Region Code</f:facet>
+ 	  #{city.reg_code}
+	</h:column>
+	<h:column>
+			<f:facet name="header">City Name</f:facet>
+ 	  #{city.city_name}
+	</h:column>
+	<h:column>
+			<f:facet name="header">Population</f:facet>
+ 	  #{city.population}
+	</h:column>
+	   
+	<h:column>
+			<f:facet name="header">By the sea</f:facet>
+ 	  #{city.coastal}
+	</h:column>  
+	<h:column>
+			<f:facet name="header">Area (km)</f:facet>
+ 	  #{city.areaKM}
+	</h:column>
+	
+	</h:dataTable>
+	
+	
+    	 <br/>
+    	 
+    	    </h:form>
+
+
+ </h:body>
+</html>

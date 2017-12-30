@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Add City</title>
+
+	<!-- <f:metadata>
+		<f:event listener="#{productController.loadProducts()}"
+			type="preRenderView" />
+	</f:metadata> -->
+</h:head>
+  
+  <h:body>
+  	<h3>Add a city here!</h3>
+  	
+  	
+  	<h:messages globalOnly="true" styleClass="error"/>
+  	<h3>City Code</h3>
+    <h:form>
+      City Code : <h:inputText value="#{city.city_code}" id="city_code" required="true" requiredMessage="Mandatory field"></h:inputText>
+  	  <h:message for="code" styleClass="error" />
+      <br/>
+      <br/>
+      Country Code : <h:inputText value="#{city.co_code}" id="co_code" required="true" requiredMessage="Mandatory field"></h:inputText>
+  	  <!-- <h:message for="code" styleClass="error" /> -->
+      <br/>
+      <br/>
+      Region Code: <h:inputText value="#{city.reg_code}" id="reg_code" required="true" requiredMessage="Mandatory field" p:placeholder="Enter Region code" ></h:inputText>
+      <br/>
+      <br/>
+      City Name: <h:inputText value="#{city.city_name}" id="city_name" required="true" requiredMessage="Mandatory field" p:placeholder="Enter City Name" ></h:inputText>
+      <br/>
+      <br/>
+      Population: <h:inputText value="#{city.population}" id="population" p:placeholder="Enter City Population" ></h:inputText>
+      <br/>
+      <br/>
+      By the sea: <h:selectOneRadio value = "#{city.coastal}">
+      		<f:selectItem itemValue = "true" itemLabel = "true" />
+      		<f:selectItem itemValue = "false" itemLabel = "false" />
+    	</h:selectOneRadio>
+    	<br/>
+        <br/>
+        
+        Area (km): <h:inputText value="#{city.areaKM}" id="areaKM" p:placeholder="Enter area in km" ></h:inputText>
+      <br/>
+      <br/>
+      <!--  
+       Population: <h:inputText value="#{city.population}" id="population" p:placeholder="Enter City Population" ></h:inputText>
+      <br/>
+      <br/>-->
+	<h:commandButton value="Add" action="#{cityController.addCity(city)}"/>
+   </h:form>
+  	
+  	
+  	
+  	
+  	
+  	 <h:link value="Homepage" outcome="index" />
+  	<!-- <p><a href="country">Countries</a></p> -->
+  </h:body>
+</html>
